@@ -1,0 +1,60 @@
+<template name="landing">
+ {{> landingOptions}}
+ {{#if form 'signup'}}
+     {{> signupTemplate}}
+ {{/if}}
+ {{#if form 'signin'}}
+     {{> loginTemplate}}
+ {{/if}}
+	
+</template>
+
+<template name="landingOptions">
+	<button class="clickChangesForm" value="signup">Sign up</button>
+	<button class="clickChangesForm" value="signin">Sign in</button>
+</template>
+
+<template name="signupTemplate">
+	<form name="signupForm" id="signupForm">
+		<table>
+			<tr>
+				<td>Username:</td>
+				<td><input type="text" name="username" /></td>
+			</tr>
+			<tr>
+				<td>Password:</td>
+				<td><input type="password" name="password" /></td>
+			</tr>
+			<tr>
+				<td>First Name:</td>
+				<td><input type="text" name="firstName" /></td>
+			</tr>
+			<tr>
+				<td>Last Name:</td>
+				<td><input type="text" name="lastName" /></td>
+			</tr>
+			<tr>
+				<td><input type="submit" name="submit" value="register"></td>
+			</tr>
+		</table>
+		
+	</form>
+</template>
+
+<template name="loginTemplate">
+	<form name="loginForm" id="loginForm">
+		<table>
+			<tr>
+				<td>Username:</td>
+				<td><input type="text" name="username" /></td>
+			</tr>
+			<tr>
+				<td>Password:</td>
+				<td><input type="password" name="password" /></td>
+			</tr>
+			<tr>
+				<td><input type="submit" name="submit" value="login"></td>
+			</tr>
+		</table>
+	</form>
+</template>

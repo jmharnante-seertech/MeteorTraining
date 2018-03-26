@@ -1,0 +1,89 @@
+<template name="adminDashboard">
+	<div class="container">
+		<form class="new-flight">
+			<table>
+				<tr><td><h4>Add Flight Schedule</h4></td></tr>
+
+				<tr>
+				<td><label for="flight-number">Flight Number:</label></td>
+				<td><input type="text" id="flight-number" name="flightNumber" required /></td>
+				</tr>
+				
+				<tr>
+				<td><label for="aircraft-number">Aircraft Number:</label></td>
+				<td><input type="text" id="aircraft-number" name="aircraftNumber" required /></td>
+				</tr>
+				
+				<tr>
+				<td><label for="from">From:</label></td>
+				<td><select id="from" name="fromLocation">
+				    {{#each getLocations}}
+				      <option value="{{locationCode}}">{{locationCode}} - {{locationName}}</option> 
+				    {{/each}}
+				</select></td>
+				</tr>
+
+				<tr>
+				<td><label for="to">To:</label></td>
+				<td><select id="to" name="toLocation">
+				    {{#each getLocations}}
+				      <option value="{{locationCode}}">{{locationCode}} - {{locationName}}</option> 
+				    {{/each}}
+				</select></td>
+				</tr>
+
+				<tr>
+				<td><label for="departure-date">Departure Date:</label></td>
+				<td><input id="departure-date" type="date" name="depDate"/></td>
+				</tr>
+
+				<tr>
+				<td><label for="departure-time">Departure Time:</label></td>
+				<td><input id="departure-time" type="time" name="depTime"/></td>
+				</tr>
+
+				<tr>
+				<td><label for="available-seats">Available Seats:</label></td>
+				<td><input id="available-seats" type="number" name="seats"/></td>
+				</tr>
+
+				<tr>
+				<td><label for="price">Price:</label></td>
+				<td><input id="price" type="number" name="price"/></td>
+				</tr>
+
+				<tr>
+					<td><button>Add Flight</button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+	<div class="container">
+		<h4>Flight Schedules</h4>
+		<table>
+			<tr>
+				<td>Flight Number</td>
+				<td>Aircraft Number</td>
+				<td>From</td>
+				<td>To</td>
+				<td>Departure Date</td>
+				<td>Departure Time</td>
+				<td>Available/Total Seats</td>
+				<td>Price</td>
+			</tr>
+			{{#each getFlights}}
+	        	<tr>
+	        		<td>{{flightNumber}}</td>
+	        		<td>{{aircraftNumber}}</td>
+	        		<td>{{fromLocation}}</td>
+	        		<td>{{toLocation}}</td>
+	        		<td>{{depDate}}</td>
+	        		<td>{{depTime}}</td>
+	        		<td>{{seats}}</td>
+	        		<td>{{price}}</td>
+	        	</tr>
+	      	{{/each}}
+		</table>
+	</div>
+</template>
