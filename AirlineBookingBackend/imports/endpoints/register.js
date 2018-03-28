@@ -19,7 +19,7 @@ Router.route('/register', { where: 'server' })
 
 		var data = { status: "404", message: "User not found." };
 		this.response.setHeader("Access-Control-Allow-Origin", "*" );
-		this.response.setHeader( "Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+		this.response.setHeader( "Access-Control-Allow-Headers", "Origin, X-Requested-With, content-type, Accept");
 		this.response.statusCode = 200;
 		this.response.end(JSON.stringify(data));
 	  }	

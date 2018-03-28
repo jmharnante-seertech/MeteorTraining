@@ -1,4 +1,5 @@
 <template name="adminDashboard">
+	{{> accountMenu}}
 	<div class="container">
 		<form class="new-flight">
 			<table>
@@ -10,8 +11,8 @@
 				</tr>
 				
 				<tr>
-				<td><label for="aircraft-number">Aircraft Number:</label></td>
-				<td><input type="text" id="aircraft-number" name="aircraftNumber" required /></td>
+				<td><label for="carrier">Carrier:</label></td>
+				<td><input type="text" id="carrier" name="carrier" required /></td>
 				</tr>
 				
 				<tr>
@@ -61,10 +62,10 @@
 
 	<div class="container">
 		<h4>Flight Schedules</h4>
-		<table>
+		<table class="table">
 			<tr>
 				<td>Flight Number</td>
-				<td>Aircraft Number</td>
+				<td>Carrier</td>
 				<td>From</td>
 				<td>To</td>
 				<td>Departure Date</td>

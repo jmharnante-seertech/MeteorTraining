@@ -60,10 +60,19 @@ Template.signupTemplate.events({
 
 Template.loginTemplate.events({
 	'submit #loginForm'(event){
-		console.log("click")
 		event.preventDefault();
-		console.log("click")
-		Router.go('/admin/dashboard')
+
+		const target = event.target;
+		const username = target.username.value;
+
+		if(username == "user1"){
+			Router.go('/admin/dashboard');
+		}
+		else{
+			Router.go('/customer/dashboard');
+		}
+
+		
 	}
 })
 
@@ -71,5 +80,11 @@ Template.landingOptions.events({
     'click .clickChangesForm': function(event, template){
         Session.set('form', event.currentTarget.getAttribute('value'))
     }
+})
+
+Template.accountMenu.events({
+	'click #signout': function(){
+		Router.go('landing');
+	}
 })
 

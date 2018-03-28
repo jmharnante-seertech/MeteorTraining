@@ -1,0 +1,35 @@
+
+<template name="customerDashboard">
+	{{> accountMenu}}
+
+	<div class="container">
+		<div class="container">
+		<h4>Flight Schedules</h4>
+		<table class="table">
+			<tr>
+				<td>Flight Number</td>
+				<td>Aircraft Number</td>
+				<td>From</td>
+				<td>To</td>
+				<td>Departure Date</td>
+				<td>Departure Time</td>
+				<td>Available/Total Seats</td>
+				<td>Price</td>
+			</tr>
+			{{#each getFlights}}
+	        	<tr>
+	        		<td>{{flightNumber}}</td>
+	        		<td>{{aircraftNumber}}</td>
+	        		<td>{{fromLocation}}</td>
+	        		<td>{{toLocation}}</td>
+	        		<td>{{depDate}}</td>
+	        		<td>{{depTime}}</td>
+	        		<td>{{seats}}</td>
+	        		<td>{{price}}</td>
+	        		<td><button>Book</button></td>
+	        	</tr>
+	      	{{/each}}
+		</table>
+	</div>
+	</div>
+</template>
