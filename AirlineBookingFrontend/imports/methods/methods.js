@@ -1,38 +1,141 @@
 import { HTTP } from 'meteor/http';
 import { Meteor } from 'meteor/meteor';
 
+//var Future = Npm.require('fibers/future');
+
 Meteor.methods({
 
-	addCarrier: function(){
-
+	addCarrier: function(data){
+		HTTP.call( "POST", Meteor.settings.public.baseUrl + 'addCarrier', {
+			'content': JSON.stringify(data)
+		},
+		function( error, response ) {
+			if (error) {
+			  console.log(error);
+			} else {
+			  console.log(response);
+			  console.log(JSON.parse(response.content));
+			}
+		});
 	},
 
-	addFlight: function(){
+	addFlight: function(data){
+		HTTP.call( "POST", Meteor.settings.public.baseUrl + 'addFlight', {
+			'content': JSON.stringify(data)
+		},
+		function( error, response ) {
+			if (error) {
+			  console.log(error);
+			} else {
+			  console.log(response);
+			  console.log(JSON.parse(response.content));
+			}
+		});
 
+		
 	},
 
-	addLocation: function(){
+	addLocation: function(data){
+		HTTP.call( "POST", Meteor.settings.public.baseUrl + 'addLocation', {
+			'content': JSON.stringify(data)
+		},
+		function( error, response ) {
+			if (error) {
+			  console.log(error);
+			} else {
+			  console.log(response);
+			  console.log(JSON.parse(response.content));
+			}
+		});
+	},
 
+	addPlane: function(data){
+		HTTP.call( "POST", Meteor.settings.public.baseUrl + 'addPlane', {
+			'content': JSON.stringify(data)
+		},
+		function( error, response ) {
+			if (error) {
+			  console.log(error);
+			} else {
+			  console.log(response);
+			  console.log(JSON.parse(response.content));
+			}
+		});
 	},
 
 	bookFlight: function(){
 
 	},
 
-	getCarriers: function(){
+	getBookings: function(userId){
 
 	},
 
-	getFlights: function(){
+	getCarriers: function(callback){
+		HTTP.call( "GET", Meteor.settings.public.baseUrl + 'getCarriers', {},
+		function( error, response ) {
+
+			if (error) {
+			  	console.log(error);
+			} else {
+				callback(JSON.parse(response.content));
+			}
+		});
+	},
+
+	getFlights: function(callback){
+		var flightData = [];
+		console.log("in get flight")
+
+		HTTP.call( "GET", Meteor.settings.public.baseUrl + 'getFlights', {},
+		function( error, response ) {
+			
+			if (error) {
+			  	console.log(error);
+			} else {
+				console.log("flights resp - " + response);
+				callback(JSON.parse(response.content));
+			}
+		});
 
 	},
 
-	getLocations:function(){
+	getLocations:function(callback){
+		HTTP.call( "GET", Meteor.settings.public.baseUrl + 'getLocations', {},
+		function( error, response ) {
 
+			if (error) {
+			  	console.log(error);
+			} else {
+				console.log("loc resp - " + JSON.parse(response.content))
+				callback(JSON.parse(response.content));
+			}
+		});
+	},
+
+	getPlanes: function(callback){
+		HTTP.call( "GET", Meteor.settings.public.baseUrl + 'getPlanes', {},
+		function( error, response ) {
+
+			if (error) {
+			  	console.log(error);
+			} else {
+				callback(JSON.parse(response.content));
+			}
+		});
 	},
 
 	login: function(){
+		HTTP.call( "GET", Meteor.settings.public.baseUrl + 'dummylogin', {},
+		function( error, response ) {
 
+			if (error) {
+			  console.log(error);
+			} else {
+			  console.log(response);
+			  console.log(JSON.parse(response.content));
+			}
+		});
 	},
 
 	register:function(userDetails){

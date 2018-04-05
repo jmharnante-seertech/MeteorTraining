@@ -65,6 +65,12 @@ Template.loginTemplate.events({
 		const target = event.target;
 		const username = target.username.value;
 
+		Meteor.call('login',{	
+		
+		}, function(error, result){
+
+		})
+
 		if(username == "user1"){
 			Router.go('/admin/dashboard');
 		}

@@ -3,33 +3,44 @@
 	{{> accountMenu}}
 
 	<div class="container">
-		<div class="container">
-		<h4>Flight Schedules</h4>
-		<table class="table">
-			<tr>
-				<td>Flight Number</td>
-				<td>Aircraft Number</td>
-				<td>From</td>
-				<td>To</td>
-				<td>Departure Date</td>
-				<td>Departure Time</td>
-				<td>Available/Total Seats</td>
-				<td>Price</td>
-			</tr>
-			{{#each getFlights}}
-	        	<tr>
-	        		<td>{{flightNumber}}</td>
-	        		<td>{{aircraftNumber}}</td>
-	        		<td>{{fromLocation}}</td>
-	        		<td>{{toLocation}}</td>
-	        		<td>{{depDate}}</td>
-	        		<td>{{depTime}}</td>
-	        		<td>{{seats}}</td>
-	        		<td>{{price}}</td>
-	        		<td><button>Book</button></td>
-	        	</tr>
-	      	{{/each}}
-		</table>
+		<ul class="nav nav-tabs">
+		  <li class="active"><a data-toggle="tab" href="#flights">Flights</a></li>
+		  <li><a data-toggle="tab" href="#booking">Bookings</a></li>
+		</ul>
 	</div>
+	<div class="container">
+		<div class="tab-content">
+			<div id="flights" class="tab-pane fade in active">
+				<h4>Flight Schedules</h4>
+				<table class="table">
+					<tr>
+						<td>Flight Number</td>
+						<td>Aircraft Number</td>
+						<td>From</td>
+						<td>To</td>
+						<td>Departure Date</td>
+						<td>Departure Time</td>
+						<td>Available/Total Seats</td>
+						<td>Price</td>
+					</tr>
+					{{#each getFlights}}
+			        	<tr>
+			        		<td>{{flightNumber}}</td>
+			        		<td>{{aircraftNumber}}</td>
+			        		<td>{{fromLocation}}</td>
+			        		<td>{{toLocation}}</td>
+			        		<td>{{depDate}}</td>
+			        		<td>{{depTime}}</td>
+			        		<td>{{seats}}</td>
+			        		<td>{{price}}</td>
+			        		<td><button>Book</button></td>
+			        	</tr>
+			      	{{/each}}
+				</table>
+			</div>
+			<div id="booking" class="tab-pane fade">
+			    <h4>Bookings</h4>
+			</div>
+		</div>
 	</div>
 </template>

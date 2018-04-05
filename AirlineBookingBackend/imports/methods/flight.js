@@ -16,5 +16,10 @@ Meteor.methods({
       }
 
       Flights.insert(flightDetails)
-    }
+    },
+  'flight.getFlights'(){
+
+    console.log("in flight.getflights")
+    return Flights.find({}).fetch();
+  }
 })
